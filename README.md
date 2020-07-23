@@ -3,7 +3,7 @@
 ## Requirements
 
 * Docker
-* Docker desktop dashboard or VS Code Docker plugin (recommended)
+* Docker desktop dashboard https://docs.docker.com/get-docker/ 
 
 ## Getting started
 
