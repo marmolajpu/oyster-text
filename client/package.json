@@ -1,0 +1,28 @@
+{
+    "name": "client-login",
+    "version": "0.0.1",
+    "main": "index.js",
+    "engines": {
+      "node": ">=12.15"
+    },
+    "engineStrict": true,
+    "scripts": {
+      "start:dev": "next -p $NEXT_APP_PORT",
+      "build": "next build",
+      "start:prod": "next start -p $NEXT_APP_PORT"
+    },
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "license": "",
+    "dependencies": {
+      "next": "^9.0.7",
+      "react": "^16.13.1",
+      "react-dom": "^16.13.1",
+      "sass": "^1.26.5",
+      "react-scripts": "^3.0.1"
+    },
+    "devDependencies": {}
+  }
+  

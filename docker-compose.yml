@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+    server:
+        build: ./server
+        env_file:
+            - .env
+        expose:
+            - ${APP_SERVER_PORT}
+        ports:
+            - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
+        volumes:
+            - ./server:/svr/server-login
+        command: npm start
+    
+    client:
+        build: ./client
+        env_file:
+            - .env
+        expose:
+            - ${NEXT_APP_PORT}
+        ports:
+            - ${NEXT_APP_PORT}:${NEXT_APP_PORT}
+        volumes:
+            - ./client:/srv/app/client-login
+        links: 
+            - server
+        command: npm run start:dev
