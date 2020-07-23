@@ -25,12 +25,10 @@ function Login() {
 
       if (status == 500 || status == 400){
         setError('Incorrect Email or Password')
-        localStorage.setItem('log', 0);
         return
       }
       
       if (status == 200){
-        localStorage.setItem('log', 1);
         router.push('/dashboard')
       }
      
