@@ -26,6 +26,13 @@ $ make build
 $ make up
 ```
 
+Credentials:
+
+```
+user@test.com
+contrasena
+```
+
 This commands will download the images listed on the [docker-compose.yml](./docker-compose.yml) configuration and will install the containers requirements. The service will be available on localhost with the port defined on `APP_SERVER_PORT` or the 5000 default setting.
 
 

@@ -1,19 +1,18 @@
 import React from 'react';
 import Router from 'next/router';
 
-const login = '/'; // Define your login route address.
+const login = '/?redirect=true';
 
 /**
  * Check user authentication and authorization
  * @returns {{auth: null}}
  */
 const checkUserAuthentication = () => {
-  return { auth: false};
+    return {auth: true}
 };
 
 export default WrappedComponent => {
   const hocComponent = ({ ...props }) => <WrappedComponent {...props} />;
-
   hocComponent.getInitialProps = async ({ res }) => {
     const userAuth = await checkUserAuthentication();
 
@@ -30,9 +29,7 @@ export default WrappedComponent => {
       const wrappedProps = await WrappedComponent.getInitialProps(userAuth);
       return { ...wrappedProps, userAuth };
     }
-
     return { userAuth };
   };
-
   return hocComponent;
 };

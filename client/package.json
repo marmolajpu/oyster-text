@@ -17,11 +17,12 @@
     },
     "license": "",
     "dependencies": {
-      "next": "^9.0.7",
+      "next": "^9.4.4",
       "react": "^16.13.1",
       "react-dom": "^16.13.1",
       "sass": "^1.26.5",
-      "react-scripts": "^3.0.1"
+      "react-scripts": "^3.0.1",
+      "lodash.debounce":"^4.0.8"
     },
     "devDependencies": {}
   }

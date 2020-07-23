@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import Link from 'next/link';
+import debounce from 'lodash.debounce';
+import router from 'next/router'
 
 
 function Login() {
@@ -10,12 +12,42 @@ function Login() {
     const [inputs, setInputs] = useState(initialValues)
     const [error, setError] = useState('')
 
+    const sendData = debounce(async (inputs) => {
+      try {
+        const {status} = await fetch('http://localhost:5000/users/login', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(inputs)
+      })
+
+      if (status == 500 || status == 400){
+        setError('Incorrect Email or Password')
+        localStorage.setItem('log', 0);
+        return
+      }
+      
+      if (status == 200){
+        localStorage.setItem('log', 1);
+        router.push('/dashboard')
+      }
+     
+
+      } catch (e) {
+      console.log(e.message)
+      }
+      
+
+    })
+
     const handleSubmit = async(e,name, password) => {
       e.preventDefault();
       // if(!name && !password){
       //   setError('Please fill the inputs')
       // }
-      console.log(`${JSON.stringify(inputs)}`)
+      sendData(inputs)
     }
 
     const handleChange = (e)=>{
